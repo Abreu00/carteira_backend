@@ -1,17 +1,15 @@
 from flask import Flask
 from flask_cors import CORS
+from .routes import actives
 from .config import Config
-from .scheduler import create_scheduler
-
-app = Flask(__name__)
+from .scrapper import schedule_scrapper
 
 def create_app():
   app = Flask(__name__)
   CORS(app)
   app.config.from_object(Config)
-  create_scheduler()
+  schedule_scrapper()
 
-  from .routes import actives
   app.register_blueprint(actives, url_prefix="/api")
 
   return app
