@@ -2,7 +2,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import atexit
 import os
 from .robot import Robot
-from ..db import actives_list
+from ..data import actives_list
 
 def update_actives():
   for active in actives_list:
