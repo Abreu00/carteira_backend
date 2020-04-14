@@ -4,15 +4,16 @@ import requests
 class Robot:
   base_url='https://statusinvest.com.br'
 
-  def __init__(self, ticker, active_type):
-    url = f'{Robot.base_url}/acoes' if active_type == 'stock' else f'{Robot.base_url}/fundos-imobiliarios'
-    url += '/' + ticker
+  def __init__(self, active):
+    print(f'Updating price of {active.ticker}')
+    url = f'{Robot.base_url}/acoes' if active.category == 'stock' else f'{Robot.base_url}/fundos-imobiliarios'
+    url += '/' + active.ticker
     self.url = url
+    self.active = active
 
   def update(self):
     req = requests.get(self.url)
     soup = BeautifulSoup(req.text, 'lxml')
     price_txt = soup.find('div', class_='top-info').find('strong').text
-    self.price = float(price_txt.replace(',', '.'))
-    print(self.price)
-    print(type(self.price))
+    price = float(price_txt.replace(',', '.'))
+    self.active.price = price

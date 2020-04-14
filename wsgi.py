@@ -1,3 +1,2 @@
-from src import create_app
+from src.run import app
 
-app = create_app()

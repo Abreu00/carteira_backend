@@ -17,6 +17,9 @@ gunicorn = "*"
 flask-sqlalchemy = "*"
 psycopg2 = "*"
 sqlalchemy = "*"
+flask-marshmallow = "*"
+marshmallow = "*"
+marshmallow-sqlalchemy = "*"
 
 [requires]
 python_version = "3.8"

@@ -1,4 +1,4 @@
-from . import db
+from . import db, ma
 
 class Active(db.Model):
   ticker = db.Column(db.String(10), primary_key=True)
@@ -9,3 +9,7 @@ class Active(db.Model):
     self.ticker = ticker
     self.category = category
     self.price = price
+
+class ActiveSchema(ma.SQLAlchemyAutoSchema):
+  class Meta:
+    model = Active
