@@ -1,12 +1,18 @@
 from bs4 import BeautifulSoup
 import requests
 
+map_type_url = {
+  'stock': 'acoes',
+  'etf': 'etfs',
+  'fii': 'fundos-imobiliarios'
+}
+
 class Robot:
   base_url='https://statusinvest.com.br'
 
   def __init__(self, active):
     print(f'Updating price of {active.ticker}')
-    url = f'{Robot.base_url}/acoes' if active.category == 'stock' else f'{Robot.base_url}/fundos-imobiliarios'
+    url = f'{Robot.base_url}/{map_type_url[active.category]}'
     url += '/' + active.ticker
     self.url = url
     self.active = active
