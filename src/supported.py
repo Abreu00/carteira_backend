@@ -45,6 +45,8 @@ supported_stocks = [
   'CIEL3',
   'EZTC3',
   'MRVE3',
+  'RADL3',
+  'GRND3'
 ]
 
 supported_fiis = [
@@ -63,4 +65,6 @@ supported_fiis = [
   'ALZR11',
   'XPIN11',
   'MALL11',
+  'IVVB11',
+  'RBVA11',
 ]
